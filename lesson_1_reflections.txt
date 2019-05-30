@@ -1,0 +1,87 @@
+How did viewing a diff between two versions of a file help you see the bug that
+was introduced?
+
+Using diff (in Windows: FC) helped to e.g. find new entries compared to the old file. 
+It also shows where things (e.g. lines) have been deleted. 
+And finding typos is very easy because this is detected as "new" code.
+
+How could having easy access to the entire history of a file make you a more
+efficient programmer in the long term?
+
+This would save me the time and disk space I take to save numerous versions of a file. 
+I could also more easily try out new things and test and get back in case this doesn't work.
+
+What do you think are the pros and cons of manually choosing when to create a
+commit, like you do in Git, vs having versions automatically saved, like Google
+docs does?
+
+As the author I know best when something new or enough new code was edited worth to save.
+But I think it is important to have both: automatik commits and user commits.
+
+Why do you think some version control systems, like Git, allow saving multiple
+files in one commit, while others, like Google Docs, treat each file separately?
+
+When I write code with interdependent files, I might change code between two commits in several files.
+If in this case the files would be stored at different times, it could become difficult to compare 
+the different commits. Treat files independently makes sense when the files are not connected to each other.
+
+How can you use the commands git log and git diff to view the history of files?
+
+'git log' lists all commits made in that repository. 
+Search for the commit you are looking for and then press 'q' after found.
+'git diff' shows the difference of 2 commits by listing their IDs in chronological order:
+git diff 'older ID' 'younger ID'.
+
+How might using version control make you more confident to make changes that
+could break something?
+
+By creating commits before I make any (risky) changes that could potentially break something 
+I always have a version of my code saved that actually worked.
+
+Now that you have your workspace set up, what do you want to try using Git for?
+
+I would like to use it with a Python repository from the Flying Car Nanodegree Program from Udacity.
+    
+    
+    
+    
+Git
+
+Commits: 
+User created checkpoints. A snapshot of every file in the repository at the time the commit was made.
+
+Git Log: 
+zeigt die verschiedenen Commits in zeitlicher Reihenfolge. 
+Oben die jüngsten, also letzten Commits, unten die früheren Commits.
+Wenn ich die interessante Stelle sehe, abbrechen mit 'q'.
+
+Git diff:
+git diff 'ältere ID (unten)' 'jüngere ID (oben)'
+Zum kopieren in Git bash: copy = STRG + Einfg (oder nur markieren mit Maus reicht schon); paste = SHIFT + Einfg
+
+Head:
+The commit you are currently on (working on). "Detach HEAD" switches to a previous commit.
+
+Git checkout:
+Zurückkehren zu einem früheren Stand des Codes (Commit)
+
+Git clone:
+Macht also eine Kopie (Download) des ganzen Git Repositories mit History auf dem Rechner
+
+Git init:
+Erzeugt ein neues Repository im aktuellen Ordner
+
+Git status:
+Zeigt den Status und zeigt was seit dem letzten Commit sich geändert hat
+
+Staging area:
+Ist die Sammlung von Dateien deren Änderungen getrackt und bei der Erstellung eines Commits erfasst werden. Alle anderen Dateien in dem Ordner oder sonst wo werden nicht getrackt. Man kann Dateien dort eintragen oder löschen.
+
+Git add:
+Fügt Dateien in die Staging area ein.
+
+
+
+
+
+
