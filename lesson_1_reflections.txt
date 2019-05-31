@@ -80,6 +80,16 @@ Ist die Sammlung von Dateien deren Änderungen getrackt und bei der Erstellung e
 Git add:
 Fügt Dateien in die Staging area ein.
 
+Git rm --cached <file>...
+Löscht Dateien aus der Staging area (unstage).
+
+Git commit
+Erzeugt ein Commit.
+
+git commit -m "Commit message"
+Erzeugt ein Commit mit Message direkt aus der Kommandozeile.
+
+test
 
 
 
