@@ -106,7 +106,7 @@ Löscht Dateien aus der Staging area (unstage).
 Git commit
 Erzeugt ein Commit.
 
-git commit -m "Commit message
+git commit -m "Commit message"
 Erzeugt ein Commit mit Message direkt aus der Kommandozeile.
 
 git reset --hard:
@@ -139,14 +139,14 @@ Beendet merge wenn ein Fehler (conflict) aufgetreten ist (siehe 3.24 Git Kurs)
 Git remote [-v]
 Zeigt ob das aktuelle Reporitory verknüpft ist mit einem remote Repository (zB auf Github). [-v] ist optional und gibt etwas mehr Infos aus.
  
-Git remote add NAME EMAIL
-Erstellt eine Verbindung zu einem remote Repository (zB auf Github). Name wird der lokale Name des Remotes, EMAIL ist die SSH Adresse in Github (steht auf der Webseite von Github wenn ein neues Repository erzeugt wird)
+Git remote add NAME_REMOTE EMAIL
+Erstellt eine Verbindung zu einem remote Repository (zB auf Github). NAME_REMOTE wird der lokale Name des Remotes, EMAIL ist die SSH Adresse in Github (steht auf der Webseite von Github wenn ein neues Repository erzeugt wird)
 
+Git push NAME_REMOTE BRANCH
+Kopiert den Branch mit Namen BRANCH NACH Github Repository mit dem lokalen Namen NAME_REMOTE.
 
-
-
-
-
+Git pull NAME_REMOTE BRANCH
+Kopiert den Branch mit Namen BRANCH VON Github Repository mit dem lokalen Namen NAME_REMOTE zurück auf den lokalen PC. 
 
 
 _______________________________________________________________________________
