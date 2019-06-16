@@ -13,10 +13,18 @@ change?
 What are some situations when branches would be helpful in keeping your history
 organized? How would branches help?
 
+    When I want to test something out which would have larger changes and I don't want to have the original master code modified, I would create a branch. Or I have a larger coding problem and I want to try different solutions I could create several branches and in each one work on a separate solution and at the end test out which variant solves the problem in the best way.
+
 How do the diagrams help you visualize the branch structure?
+
+    I can see where branches were created and which commits are part of which branch. And I can easily see the parent commit of each commit.
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
 
+    Two branches which have evolved separately can be joined together to create the next master. If e.g. a bug was fixed in a branch, this fix can then be taken over into the master branch.
+
 What are the pros and cons of Git's automatic merging vs. always doing merges
 manually?
+
+    Pros: merging two branches automatically gives at least a chance that the merge runs without further manual work. But you still need to be careful with it and test thoroughly the result of the merge. Always doing merges manually is safer, but also very time consuming. With the conflict hints from the merge command the user might be directly pointed to where problems may appear in the process of merging.
