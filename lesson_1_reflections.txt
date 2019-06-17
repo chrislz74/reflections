@@ -149,6 +149,8 @@ Git pull NAME_REMOTE BRANCH
 Kopiert den Branch mit Namen BRANCH VON Github Repository mit dem lokalen Namen NAME_REMOTE zurück auf den lokalen PC. 
 
 
+
+
 _______________________________________________________________________________
 
 BACKUP:
