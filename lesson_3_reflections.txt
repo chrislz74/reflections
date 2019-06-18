@@ -20,9 +20,9 @@ stored locally?
 How would you collaborate without using Git or GitHub?  What would be easier,
 and what would be harder?
 
-    Fill in your answer here
+    I would be exchanging frequently the full repository to my peers, but it would always be a major effort to merge changes made in parallel.
 
 When would you want to make changes in a separate branch rather than directly in
 master?  What benefits does each approach have?
 
-    Fill in your answer here
+    In my mind only when I am working on a repository of someone else to not bring errors into the otherones master branch. So first work on a separate branch, make a pull request to let others check what I did and after review merge it into master.
