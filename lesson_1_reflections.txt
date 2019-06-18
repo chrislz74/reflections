@@ -86,7 +86,10 @@ Git checkout -b NEW-BRANCH-NAME
 Wenn man an einem "detached HEAD" commit arbeitet, das keinem Branch gehört (man arbeitet oder tested an einem früheren commit, nicht das Neueste) und man die Änderungen wiederauffindbar mit git log machen will, muss man einen Branch definieren. Dieser Befehl erzeugt und wechselt zu einem neuen Branch das das detached Head commit enthält.
 
 Git clone:
-Macht also eine Kopie (Download) des ganzen Git Repositories mit History auf dem Rechner
+Macht also eine Kopie eines ganzen Git Repositories mit History auf dem Rechner
+
+Git fork:
+Nur auf Github: funktioniert wie clone, aber es besteht weiterhin eine Verbindung zum ursprünglichen Repository
 
 Git init:
 Erzeugt ein neues Repository im aktuellen Ordner
@@ -146,9 +149,10 @@ Git push NAME_REMOTE BRANCH
 Kopiert den Branch mit Namen BRANCH NACH Github Repository mit dem lokalen Namen NAME_REMOTE.
 
 Git pull NAME_REMOTE BRANCH
-Kopiert den Branch mit Namen BRANCH VON Github Repository mit dem lokalen Namen NAME_REMOTE zurück auf den lokalen PC. 
+Kopiert den Branch mit Namen BRANCH VON Github Repository mit dem lokalen Namen NAME_REMOTE zurück auf den lokalen PC. (Ist das gleiche wie wenn man erst Git fetch und dann Git merge master origin/master macht.
 
-
+Git fetch
+Wenn unterschiedliche Stände lokal und auf Github sind, kann man sich den Stand von Github zum lokalen remote branch ziehen (zB origin/master). Das ist gut wenn man dann mergen will. Dann sind der lokal Branch (zB master) und die kopie des remote branches (zB origin/master) beide lokal auf dem PC und man kann sich die Unterschiede anzeigen lassen.
 
 
 _______________________________________________________________________________
@@ -166,7 +170,22 @@ To fix this, Windows users should set the global autocrlf attribute to true: git
 
 
 (2)
+Bei conflicts bei git merge:
+nach "<<<<<<<<": Meine Änderungen (master)
+nach "||||||||": Originale Version
+nach "========": Die Version die jemand anders geändert hat (zB auf origin/master)
 
-
+Directions:
+ 1. Brown the ground beef in a large bot and drain off the excess fat.
+<<<<<<< HEAD
+ 2. Add the tomato sauce, chili powder, cumin, oregano, majoran, salt, and cayenne.
+||||||| merged common ancestors
+ 2. Add the tomato sauce, chili powder, cumin, oregano, salt, and cayenne.
+=======
+ 2. Add the tomato sauce, chili powder, oregano, salt, and cayenne.
+>>>>>>> origin/master
+ 3. Stir, then cover and simmer over low heat for one hour.
+ 4. Mix the corn flour and 1/2 cup water in a small bowl.  Add to chili.
+ 5. Add the beans and simmer for 10 more minutes.
 
 
