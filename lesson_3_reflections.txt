@@ -15,7 +15,7 @@ use one instead of another?
 What is the benefit of having a copy of the last known state of the remote
 stored locally?
 
-    ?? You might be able to check if history of the remote repository has changed while you were working offline...
+    You might be able to check if history of the remote repository has changed while you were working offline...
 
 How would you collaborate without using Git or GitHub?  What would be easier,
 and what would be harder?
