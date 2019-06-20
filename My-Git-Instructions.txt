@@ -1,0 +1,145 @@
+    
+Git
+===
+
+[Zum kopieren in Git bash: 
+copy = STRG + Einfg (oder nur markieren mit Maus reicht schon)
+paste = SHIFT + Einfg]
+
+Um mit Git bash zu arbeiten, muss man es im Ordner öffnen (Rechte Maustaste, dann "Git bash") in dem ein Reporitory existiert (man erkennt es an einem versteckten ".git" Ordner).
+
+Commits: 
+User created checkpoints. A snapshot of every file in the repository (better: files you added into the staging area) at the time the commit was made.
+
+Git log: 
+zeigt die verschiedenen Commits in zeitlicher Reihenfolge. 
+Oben die jüngsten, also letzten Commits, unten die früheren Commits.
+Wenn ich die interessante Stelle sehe, abbrechen mit 'q'.
+
+Git log --graph (--oneline) BRANCH1 BRANCH2 ....
+zeigt Branch Struktur besser an (mit --oneline wird es kürzer und übersichtlicher). Danach die BRanches auflisten die angezeigt werden sollen
+
+Git diff:
+git diff 'ältere ID (unten)' 'jüngere ID (oben)'
+git diff: ohne Argumente zeigt Änderungen der Working area zu Staging area.
+git diff --staged: zeigt Änderungen zwischen Staging area und letztem Commit
+
+git show 'ID'
+zeigt 'git diff' zwischen commit ID und dem zugehörigen parent commit (auch wenn man nicht mehr weiss welches das war; besonders wichtig wenn man Branches gemerged hat da die commits der branches nach Timestamp sortiert werden)
+
+Head:
+The commit you are currently working on (current commit). "Detach HEAD" switches to a previous commit.
+
+Git checkout 'commit ID':
+Zurückkehren zu einem früheren Stand ('commit ID') des Codes (Commit)
+
+Git checkout master:
+Zurückkehren zum jüngsten Commit des Repositories (wenn der Head noch detached ist weil man ein früheres Commit ge'checkout' hat)
+
+Git checkout -b NEW-BRANCH-NAME
+Wenn man an einem "detached HEAD" commit arbeitet, das keinem Branch gehört (man arbeitet oder tested an einem früheren commit, nicht das Neueste) und man die Änderungen wiederauffindbar mit git log machen will, muss man einen Branch definieren. Dieser Befehl erzeugt und wechselt zu einem neuen Branch das das detached Head commit enthält.
+
+Git clone ADRESS:
+Macht also eine Kopie eines ganzen Git Repositories mit History auf dem Rechner (ADRESS zB git@github.com:chrislz74/create-your-own-adventure.git, steht auf der Github Seite wenn man den grünen Knopf "Clone or download" drückt)
+
+Git fork:
+Nur auf Github: funktioniert wie clone, aber es besteht weiterhin eine Verbindung zum ursprünglichen Repository
+
+Git init:
+Erzeugt ein neues Repository im aktuellen Ordner
+
+Git status:
+Zeigt den Status und zeigt was seit dem letzten Commit sich geändert hat
+
+Staging area:
+Ist die Sammlung von Dateien deren Änderungen getrackt und bei der Erstellung eines Commits erfasst werden. Alle anderen Dateien in dem Ordner oder sonst wo werden nicht getrackt. Man kann Dateien dort eintragen oder löschen.
+
+Git add:
+Fügt Dateien in die Staging area ein.
+
+Git rm --cached <file>...
+Löscht Dateien aus der Staging area (unstage).
+
+Git commit
+Erzeugt ein Commit.
+
+git commit -m "Commit message"
+Erzeugt ein Commit mit Message direkt aus der Kommandozeile.
+
+git reset --hard:
+Be very carefull with this command: it discards all changes tracked in staging area (oder so ähnlich, nochmal checken)
+
+Branch:
+"Verzweigung": wenn man einen "Ast" erzeugen will um etwas zu testen was die originale "full" Entwicklung nicht beeinflusst. Der default branch ist MASTER, und wird automatisch von Git erzeugt.
+
+Remote Branch:
+Branch das nicht ich sondern jemand anders erzeugt hat
+
+Git branch:
+Zeigt alle vorhandenen Branches. '*' zeigt an welcher Branch "checked out" ist
+
+Git branch "Variante":
+Erzeugt einen Branch mit Name "Variante", aber voriger Branch ist noch "checked out".
+
+Git branch -d "Variante":
+Löscht (-d für delete) einen Branch, nicht die Commits die da drin waren (also nur das Label wird entfernt). Wird zum Beispiel nach einem Merge von Branches gemacht. Wenn nicht gemerged wurde, sind die Commits vom gelöschten Branch nicht mehr auffindbar (ausser man hat sich die ID gemerkt)
+
+Git checkout "Variante":
+Der Branch "Variante" wird ausgecheckt, und alle neuen Commits werden in dem Branch "Variante" angehängt
+
+Git merge BRANCH1 [BRANCH2 ...]
+Vereinigt Branches zur aktuellen (ge-checked-out) BRANCH: BRANCH2 und BRANCH1 werden zur aktuellen BRANCH hinzugefügt (aktuelle BRANCH kann auch BRANCH1 sein). Am besten aufpassen das BRANCH1 auch check-out ist. Dabei wird ein neuer Commit erzeugt.
+
+Git merge --abort
+Beendet merge wenn ein Fehler (conflict) aufgetreten ist (siehe 3.24 Git Kurs)
+
+Git remote [-v]
+Zeigt ob das aktuelle Reporitory verknüpft ist mit einem remote Repository (zB auf Github). [-v] ist optional und gibt etwas mehr Infos aus.
+ 
+Git remote add NAME_REMOTE EMAIL
+Erstellt eine Verbindung zu einem remote Repository (zB auf Github). NAME_REMOTE wird der lokale Name des Remotes, EMAIL ist die SSH Adresse in Github (steht auf der Webseite von Github wenn ein neues Repository erzeugt wird)
+
+Git push NAME_REMOTE BRANCH
+Kopiert den Branch mit Namen BRANCH NACH Github Repository mit dem lokalen Namen NAME_REMOTE.
+
+Git pull NAME_REMOTE BRANCH
+Kopiert den Branch mit Namen BRANCH VON Github Repository mit dem lokalen Namen NAME_REMOTE zurück auf den lokalen PC. (Ist das gleiche wie wenn man erst Git fetch und dann Git merge master origin/master macht.
+
+Git fetch
+Wenn unterschiedliche Stände lokal und auf Github sind, kann man sich den Stand von Github zum lokalen remote branch ziehen (zB origin/master). Das ist gut wenn man dann mergen will. Dann sind der lokal Branch (zB master) und die kopie des remote branches (zB origin/master) beide lokal auf dem PC und man kann sich die Unterschiede anzeigen lassen.
+
+
+_______________________________________________________________________________
+
+BACKUP:
+
+(1)
+Merge conflict (Newline characters between Windows and Unix systems)
+
+Context: Whenever we hit the "Enter" key on the keyboard, we are actually telling the computer to insert an invisible character into our text file to indicate to the computer that there should be a new line. Unix systems adds one character called the "line feed" character or LF or \n while Windows systems adds two characters, "carriage return" and "line feed" or CRLF or \r\n.
+
+Caroline's files have LF because her files were edited on Mac OSX, which uses LF. If a Windows user were to edit Caroline's files, the Windows text editor might convert all LF to CRLF to make editing files possible. When the Windows user merges her file with Caroline's files, a merge conflict will result due to the different LF and CRLF characters.
+
+To fix this, Windows users should set the global autocrlf attribute to true: git config --global core.autocrlf true. More information can be found here: https://help.github.com/articles/dealing-with-line-endings/#platform-all
+
+
+(2)
+Bei conflicts bei git merge:
+nach "<<<<<<<<": Meine Änderungen (master)
+nach "||||||||": Originale Version
+nach "========": Die Version die jemand anders geändert hat (zB auf origin/master)
+
+Directions:
+ 1. Brown the ground beef in a large bot and drain off the excess fat.
+<<<<<<< HEAD
+ 2. Add the tomato sauce, chili powder, cumin, oregano, majoran, salt, and cayenne.
+||||||| merged common ancestors
+ 2. Add the tomato sauce, chili powder, cumin, oregano, salt, and cayenne.
+=======
+ 2. Add the tomato sauce, chili powder, oregano, salt, and cayenne.
+>>>>>>> origin/master
+ 3. Stir, then cover and simmer over low heat for one hour.
+ 4. Mix the corn flour and 1/2 cup water in a small bowl.  Add to chili.
+ 5. Add the beans and simmer for 10 more minutes.
+
+
